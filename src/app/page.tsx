@@ -1,5 +1,6 @@
 import Image from "next/image";
 import {Fira_Mono} from "next/font/google" 
+import { Playfair_Display } from "next/font/google";
 
 // That Claude font // 
 const firaMono = Fira_Mono({
@@ -8,15 +9,24 @@ const firaMono = Fira_Mono({
   display: 'swap' 
 })
 
+const playFair = Playfair_Display({
+  subsets: ['latin'], 
+  weight: '600', 
+  style: ['italic'], 
+  display: 'swap' 
+})
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center py-4"> 
+    
+    <header className="w-full bg-gray-900 border-b border-gray-700 px-4 py-4">  
+
+    <div className="min-h-screen flex items-center justify-center py-4"> 
 
       <div className="flex flex-col items-center space-y-4">  
         
-        <h1 className={`text-white text-xl md:text-3xl lg:text-5xl tracking-wider ${firaMono}`}> 
-          Pāragate 
+        <h1 className={`text-white text-xl md:text-4xl lg:text-6xl tracking-wider ${firaMono.className}`}> 
+          Paragate 
         </h1>
 
         <img 
@@ -30,5 +40,6 @@ export default function Home() {
       </div> 
 
     </div> 
+    </header> 
   );
 }
