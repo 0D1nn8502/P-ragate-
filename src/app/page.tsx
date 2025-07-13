@@ -2,6 +2,8 @@ import Image from "next/image";
 import {Fira_Mono} from "next/font/google" 
 import { Playfair_Display } from "next/font/google";
 
+import Link from "next/link"; 
+
 // That Claude font // 
 const firaMono = Fira_Mono({
   subsets: ['latin'], 
@@ -16,30 +18,52 @@ const playFair = Playfair_Display({
   display: 'swap' 
 })
 
+
 export default function Home() {
   return (
+
+    <div className="min-h-screen bg-gray-900"> 
     
-    <header className="w-full bg-gray-900 border-b border-gray-700 px-4 py-4">  
+    <header className="w-ful px-4 py-4">  
 
-    <div className="min-h-screen flex items-center justify-center py-4"> 
+    <div className="flex items-center gap-7"> 
 
-      <div className="flex flex-col items-center space-y-4">  
+      {/* Logo and Name style */}
+
+      <div className="flex flex-col items-center"> 
+
+        <div className="relative"> 
+
+          <img 
+            src="/Thangka.JPG"
+            alt="gate gate" 
+            className="w-16 h-16 md:w-20 md:h-20 lg:w-25 lg:h-25 rounded-full object-cover object-center"     
+          > 
+          </img> 
+
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/100 rounded-full"> 
+
+          </div>
+
+        </div> 
+
         
-        <h1 className={`text-white text-xl md:text-4xl lg:text-6xl tracking-wider ${firaMono.className}`}> 
-          Paragate 
-        </h1>
+        <p className={`text-white text-xs md:text-xs lg:text-sm tracking-wider ${firaMono.className} -mt-3 md:-mt-7 lg:-mt-5 z-10`}> 
+          Pāragate 
+        </p>
 
-        <img 
-          src="/Thangka.JPG"
-          alt="gate gate" 
-          className="h-32 md:h-55 lg:h-70 w-auto"   
-        > 
-      
-        </img>
 
       </div> 
 
+      {/* Logo and Name style ends */} 
+
+      <Link href="/about" className={`text-white text-xs md:text-xs lg:text-sm tracking-wider ${firaMono.className}`}> 
+        About 
+      </Link> 
+
     </div> 
     </header> 
+    </div> 
   );
 }
+
