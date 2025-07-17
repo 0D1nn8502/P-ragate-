@@ -1,10 +1,13 @@
+import Header from "../components/Header";
+import AboutSection from "../components/About";
+
 export default function About() {
   return (
-    <div className="bg-gray-700 min-h-screen">
+    <div className="bg-gray-900 min-h-screen">
 
-      <h1>About Page</h1>
-      <p>This is the about page content.</p> 
-      
+        <Header/> 
+        <AboutSection/> 
+
     </div>
   );
 }
