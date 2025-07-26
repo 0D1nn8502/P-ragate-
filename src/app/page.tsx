@@ -4,6 +4,7 @@ import { Playfair_Display } from "next/font/google";
 import Link from "next/link"; 
 
 import Header from "./components/Header";
+import HeroSection from "./components/Hero";
 
 
 const playFair = Playfair_Display({
@@ -19,6 +20,10 @@ export default function Home() {
 
     <div className="min-h-screen bg-gray-900"> 
       <Header/> 
+      
+      <HeroSection heading="Break out of Samsārā" content="Weekend getaways to immersive local experiences"  
+      image="./himalayas.avif"/>  
+
     </div> 
   );
 }
