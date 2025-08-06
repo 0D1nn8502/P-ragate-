@@ -18,16 +18,21 @@ export default function HeroSection({
   className = "",
 }: HeroSectionProps) {
   return (
-    <div className={`flex md:flex-row items-center gap-7 ${className}`}>
-      <div className="flex flex-col gap-5 text-center md:text-left">
-        
-      </div>
+    <div className="relative">
       <img
         src={image}
         alt="escape"
-        className="w-full h-[70vh] object-cover"
+        className="w-full h-screen object-cover"
       />
-    </div>
+      
+      <div className="absolute inset-0 flex items-center justify-center text-white bg-black/20">
+        <div className="text-center">
+          <h1 className="text-4xl md:text-6xl font-bold">Feeling stuck?</h1>
+          <p className="mt-4 text-xl">Just get going</p>
+        </div>
+      </div>
+
+  </div> 
   );
 }
 

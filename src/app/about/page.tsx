@@ -1,5 +1,5 @@
-import Header from "../components/Header";
-import AboutSection from "../components/About";
+import Header from "../../components/Header";
+import AboutSection from "../../components/About";
 
 export default function About() {
   return (
