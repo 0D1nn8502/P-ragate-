@@ -15,8 +15,9 @@ export default function Connect() {
   const submitBtnRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
-    // Entrance animation for the form
-    const ctx = gsap.context(() => {
+  // Entrance animation for the form
+  const ctx = gsap.context(() => {
+    if (formRef.current) {
       gsap.from(formRef.current, {
         y: 30,
         opacity: 0,
@@ -24,19 +25,19 @@ export default function Connect() {
         ease: "power3.out",
       });
 
-      gsap.from(
-        formRef.current?.querySelectorAll(".stagger"),
-        {
+      const staggerElements = formRef.current.querySelectorAll(".stagger");
+      if (staggerElements.length > 0) {
+        gsap.from(staggerElements, {
           y: 8,
           opacity: 0,
           duration: 0.45,
           stagger: 0.08,
           delay: 0.12,
           ease: "power2.out",
-        }
-      );
-    }, formRef);
-
+        });
+      }
+    }
+  }, formRef);
     return () => ctx.revert();
   }, []);
 
