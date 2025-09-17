@@ -1,5 +1,6 @@
 import { Playfair_Display } from "next/font/google"
 import { Fira_Mono } from "next/font/google";
+import Header from "./Header";
 
 const playFair = Playfair_Display({
   subsets: ['latin'], 
@@ -22,6 +23,7 @@ interface AboutProp {
 export default function AboutSection() {
 
     return (
+        
         
 
         <div className={`text-white text-s md:text-xs lg:text-sm ${firaMono.className} flex items-center`}> 

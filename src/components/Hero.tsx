@@ -1,8 +1,5 @@
 
-
-
 // Travel? This is life. // 
-
 interface HeroSectionProps {
     image: string; 
     heading: string; 
@@ -28,7 +25,7 @@ export default function HeroSection({
       <div className="absolute inset-0 flex items-center justify-center text-white bg-black/20">
         <div className="text-center">
           <h1 className="text-4xl md:text-6xl font-bold">Feeling stuck?</h1>
-          <p className="mt-4 text-xl">Just get going</p>
+          <p className="mt-4 text-xl">Time to get going</p>
         </div>
       </div>
 
