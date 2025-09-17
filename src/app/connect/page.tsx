@@ -47,48 +47,75 @@ export default function Connect() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setMessage("");
-    setError("");
+  e.preventDefault();
+  setMessage("");
+  setError("");
 
-    if (!validateEmail(email)) {
-      setError("Please enter a valid email address.");
-      // shake animation on invalid
-      gsap.fromTo(
-        inputRef.current,
-        { x: -8 },
-        { x: 8, duration: 0.06, repeat: 5, yoyo: true, onComplete: () => gsap.to(inputRef.current, { x: 0 }) }
-      );
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/accounts/verification/`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        setError(data?.message || "Something went wrong. Please try again.");
-        // subtle error pulse on button
-        gsap.fromTo(submitBtnRef.current, { scale: 1 }, { scale: 0.98, duration: 0.08, yoyo: true, repeat: 3 });
-      } else {
-        setMessage(data?.message || "Verification email sent — check your inbox!");
-        setEmail("");
-        // success pop animation
-        gsap.fromTo(formRef.current, { scale: 0.995 }, { scale: 1, duration: 0.2, ease: "elastic.out(1, 0.6)" });
+  if (!validateEmail(email)) {
+    setError("Please enter a valid email address.");
+    // shake animation on invalid
+    gsap.fromTo(
+      inputRef.current,
+      { x: -8 },
+      { 
+        x: 8, 
+        duration: 0.06, 
+        repeat: 5, 
+        yoyo: true, 
+        onComplete: () => {
+          gsap.to(inputRef.current, { x: 0 });
+        }
       }
-    } catch (err) {
-      setError("Network error — please try again.");
-    } finally {
-      setLoading(false);
+    );
+    return;
+  }
+
+  setLoading(true);
+
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/accounts/verification/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      setError(data?.message || "Something went wrong. Please try again.");
+      // subtle error pulse on button
+      gsap.fromTo(
+        submitBtnRef.current,
+        { scale: 1 },
+        { 
+          scale: 0.98, 
+          duration: 0.08, 
+          yoyo: true, 
+          repeat: 3 
+        }
+      );
+    } else {
+      setMessage(data?.message || "Verification email sent — check your inbox!");
+      setEmail("");
+      // success pop animation
+      gsap.fromTo(
+        formRef.current,
+        { scale: 0.995 },
+        { 
+          scale: 1, 
+          duration: 0.2, 
+          ease: "elastic.out(1, 0.6)" 
+        }
+      );
     }
-  };
+  } catch (err) {
+    setError("Network error — please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-zinc-900 text-gray-100 flex flex-col">
