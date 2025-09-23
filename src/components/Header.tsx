@@ -57,7 +57,7 @@ export default function Header() {
         {/* Logo and Name style ends */}
 
         {/* 🔹 3. Attach ref here so GSAP can target children */}
-        <div ref={navRef} className="flex gap-4 sm:gap-5 md:gap-10 mr-2 sm:mr-4 lg:mr-8">
+        <div ref={navRef} className="flex gap-2 xs:gap-3 sm:gap-4 md:gap-10 mr-1 sm:mr-4 lg:mr-8">
           <Link href="/about" className={`text-white text-sm md:text-sm lg:text-[1.01rem] tracking-wider ${firaMono.className}`}>
             About
           </Link>
