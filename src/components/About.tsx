@@ -23,8 +23,7 @@ interface AboutProp {
 export default function AboutSection() {
 
     return (
-        
-        
+
 
         <div className={`text-white text-s md:text-xs lg:text-sm ${firaMono.className} flex items-center`}> 
 
