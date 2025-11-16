@@ -5,7 +5,7 @@ import { Scroll, MapPin, Star } from 'lucide-react';
 import Header from '@/components/Header';
 
 export default function ExperiencesPage() {
-  const [expandedQuest, setExpandedQuest] = useState(null);
+  const [expandedQuest, setExpandedQuest] = useState<number | null>(null);
 
   const experiences = [
     {
