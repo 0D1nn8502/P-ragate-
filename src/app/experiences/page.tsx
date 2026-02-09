@@ -4,13 +4,17 @@ import { useState } from 'react';
 import { Scroll, MapPin, Star } from 'lucide-react';
 import Header from '@/components/Header';
 
+/// Experience categories : Nature, City, History, Pre-history, /// 
+
+/// Difficulty : Lack of food, Distance, 
+
 export default function ExperiencesPage() {
   const [expandedQuest, setExpandedQuest] = useState<number | null>(null);
 
   const experiences = [
     {
       id: 1,
-      title: 'Quest to the Golden Dunes',
+      title: '',
       location: 'Dubai, UAE',
       category: 'adventure',
       type: 'group',

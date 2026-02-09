@@ -37,7 +37,7 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full px-4 py-3 sm:px-6 sm:py-4">
+    <header className="w-full px-4 py-3 backdrop-blur-sm bg-white/0">
       <div className="flex items-center justify-between">
         {/* Logo and Name */}
         <Link href="/" className="flex flex-col items-center cursor-pointer group z-20">
@@ -65,12 +65,12 @@ export default function Header() {
           >
             About
           </Link>
-          <Link 
+          {/* <Link 
             href="/locations" 
             className={`text-white text-sm lg:text-base tracking-wider ${firaMono.className} hover:text-gray-300 transition-colors`}
           >
             Locations
-          </Link>
+          </Link> */}
           <Link 
             href="/experiences" 
             className={`text-white text-sm lg:text-base tracking-wider ${firaMono.className} hover:text-gray-300 transition-colors`}

@@ -1,13 +1,13 @@
 import Header from "../../components/Header";
-import AboutSection from "../../components/About";
+import { HeroSectionAbout } from "@/components/about/HeroSection";
+
 
 export default function About() {
   return (
-    <div className="bg-gray-900 min-h-screen">
+    <div className="bg-black min-h-screen">
 
         <Header/> 
-        <AboutSection/> 
-
+        <HeroSectionAbout/>
     </div>
   );
 }

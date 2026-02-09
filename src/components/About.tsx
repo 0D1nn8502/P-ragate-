@@ -36,6 +36,13 @@ export default function AboutSection() {
                 your interests while creating meaningful impact through our partnerships with local organizations and NGOs. 
                 
             </p>
+
+            <p> 
+
+                People, eager to learn, explore and grow are our lifeblood. We operate with them, through them and for them. 
+
+            </p>
+
             </div> 
 
         </div>

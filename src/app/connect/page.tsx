@@ -3,8 +3,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Header from "@/components/Header";
+import { signupWithEmail } from "@/lib/api/auth";
 
-export default function Connect() {
+export default function EmailSignup() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -45,77 +46,70 @@ export default function Connect() {
     // simple email regex (sufficient for basic validation)
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   };
-
+  
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setMessage("");
-  setError("");
+    e.preventDefault();
+    setMessage("");
+    setError("");
 
-  if (!validateEmail(email)) {
-    setError("Please enter a valid email address.");
-    // shake animation on invalid
-    gsap.fromTo(
-      inputRef.current,
-      { x: -8 },
-      { 
-        x: 8, 
-        duration: 0.06, 
-        repeat: 5, 
-        yoyo: true, 
-        onComplete: () => {
-          gsap.to(inputRef.current, { x: 0 });
-        }
-      }
-    );
-    return;
-  }
-
-  setLoading(true);
-
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/accounts/verification/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ email }),
-    });
-
-    const data = await res.json();
-
-    if (!res.ok) {
-      setError(data?.message || "Something went wrong. Please try again.");
-      // subtle error pulse on button
+    if (!validateEmail(email)) {
+      setError("Please enter a valid email address.");
+      // shake animation on invalid
       gsap.fromTo(
-        submitBtnRef.current,
-        { scale: 1 },
+        inputRef.current,
+        { x: -8 },
         { 
-          scale: 0.98, 
-          duration: 0.08, 
+          x: 8, 
+          duration: 0.06, 
+          repeat: 5, 
           yoyo: true, 
-          repeat: 3 
+          onComplete: () => {
+            gsap.to(inputRef.current, { x: 0 });
+          }
         }
       );
-    } else {
-      setMessage(data?.message || "Verification email sent — check your inbox!");
-      setEmail("");
-      // success pop animation
-      gsap.fromTo(
-        formRef.current,
-        { scale: 0.995 },
-        { 
-          scale: 1, 
-          duration: 0.2, 
-          ease: "elastic.out(1, 0.6)" 
-        }
-      );
+      return;
     }
-  } catch (err) {
-    setError("Network error — please try again.");
-  } finally {
-    setLoading(false);
-  }
-};
+
+    setLoading(true);
+    
+
+    try {
+      const res = await signupWithEmail(email);  
+
+      if (!res.ok) {
+        setError("Something went wrong. Please try again.");
+        // subtle error pulse on button
+        gsap.fromTo(
+          submitBtnRef.current,
+          { scale: 1 },
+          { 
+            scale: 0.98, 
+            duration: 0.08, 
+            yoyo: true, 
+            repeat: 3 
+          }
+        );
+      } else {
+        setMessage("Verification email sent — check your inbox!");
+        setEmail("");
+        // success pop animation
+        gsap.fromTo(
+          formRef.current,
+          { scale: 0.995 },
+          { 
+            scale: 1, 
+            duration: 0.2, 
+            ease: "elastic.out(1, 0.6)" 
+          }
+        );
+      }
+    } catch (err) {
+      setError("Network error — please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-zinc-900 text-gray-100 flex flex-col">
@@ -173,10 +167,21 @@ export default function Connect() {
             >
               <span className="mr-2">{loading ? "Sending..." : "Send link"}</span>
 
+              {loading ? (
+                <img
+                  src="/loading.svg"
+                  alt="Loading"
+                  className="w-6 h-6 spin-slow"
+                />
+              ) : (
+
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path d="M22 2L11 13" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M22 2L15 22L11 13L2 9L22 2Z" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
               </svg>
+
+              )} 
+
             </button>
 
             <button
