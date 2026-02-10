@@ -1,6 +1,6 @@
 'use client';
 import {useRef, useEffect} from 'react';
-import { Fuzzy_Bubbles } from 'next/font/google';
+import { Fuzzy_Bubbles, Quicksand } from 'next/font/google';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
@@ -11,6 +11,12 @@ export const fuzzyBubbles = Fuzzy_Bubbles({
   subsets: ['latin'],
   weight: ['700'],
 });
+
+
+export const quicksand = Quicksand({
+  subsets: ['latin'], 
+  weight: ['500']
+})
 
 
 gsap.registerPlugin(ScrollTrigger); 
@@ -204,7 +210,7 @@ const AboutSection1 = () => {
 
               <p
                 className={`
-                  ${fuzzyBubbles.className}
+                  ${quicksand.className}
                   max-w-2xl
                   text-lg
                   md:text-xl
@@ -242,7 +248,7 @@ const AboutSection1 = () => {
 
               <p
                 className={`
-                  ${fuzzyBubbles.className}
+                  ${quicksand.className}
                   mt-10
                   max-w-2xl
                   text-lg
@@ -297,7 +303,7 @@ const AboutSection1 = () => {
 
               <p
                 className={`
-                  ${fuzzyBubbles.className}
+                  ${quicksand.className}
                   mt-10
                   max-w-2xl
                   text-lg
