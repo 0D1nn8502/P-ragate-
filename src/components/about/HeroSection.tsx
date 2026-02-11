@@ -216,7 +216,7 @@ const AboutSection1 = () => {
 
               <p
                 className={`
-                  ${playfair.className}
+                  ${cinzel.className}
                   max-w-2xl
                   text-lg
                   md:text-xl
@@ -332,7 +332,8 @@ const AboutSection1 = () => {
               <Link href="/connect">
                 <button
                   className="
-                    mt-6
+                    mt-3
+                    mb-5
                     px-8
                     py-3
                     bg-gradient-to-r
@@ -340,7 +341,7 @@ const AboutSection1 = () => {
                     to-[#e8be59]
                     text-[#5a4a2f]
                     font-semibold
-                    rounded-full
+                    rounded-xl
                     shadow-md
                     hover:shadow-lg
                     hover:scale-105
