@@ -1,19 +1,26 @@
 'use client';
 import {useRef, useEffect} from 'react';
-import { Fuzzy_Bubbles, Quicksand } from 'next/font/google';
+import { Quicksand, Playfair_Display, Cinzel } from 'next/font/google';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import Link from 'next/link';
 
 
-export const fuzzyBubbles = Fuzzy_Bubbles({
-  subsets: ['latin'],
-  weight: ['700'],
-});
-
 
 export const quicksand = Quicksand({
+  subsets: ['latin'], 
+  weight: ['500']
+})
+
+
+export const playfair = Playfair_Display({
+  subsets: ['latin'], 
+  weight: ['500']
+})
+
+
+export const cinzel = Cinzel({
   subsets: ['latin'], 
   weight: ['500']
 })
@@ -43,7 +50,6 @@ const AboutSection1 = () => {
   const section1Ref = useRef<HTMLDivElement>(null);
   const section2Ref = useRef<HTMLDivElement>(null);
   const section3Ref = useRef<HTMLDivElement>(null);
-
   
 
   useEffect(() => {
@@ -210,17 +216,19 @@ const AboutSection1 = () => {
 
               <p
                 className={`
-                  ${quicksand.className}
+                  ${playfair.className}
                   max-w-2xl
                   text-lg
                   md:text-xl
                   leading-relaxed
-                  tracking-wide
-                  font-light
+                  tracking-widest
+                  font-extralight
                   opacity-90
+                  px-10
+                  py-10
                 `}
               >
-              We don't see travel as an escape—it's a return. A return to curiosity, to presence, to the parts of yourself waiting to be discovered. Every journey should reshape you: the way you taste morning chai, the cadence of a new language on your tongue, the warmth of a stranger who becomes family. 
+                Travel is not an escape—it’s a <b> return </b> to curiosity, presence, and transformation
               </p>
             </div>
 
@@ -248,18 +256,20 @@ const AboutSection1 = () => {
 
               <p
                 className={`
-                  ${quicksand.className}
+                  ${cinzel.className}
                   mt-10
                   max-w-2xl
                   text-lg
                   md:text-xl
                   leading-relaxed
-                  tracking-wide
-                  font-light
+                  tracking-widest
+                  font-extralight
                   opacity-90
+                  px-10
+                  py-10
                 `}
               >
-              We strip away the friction—the logistics, the uncertainty—so all that remains is immersion. You don't just visit a place. You inhabit it, learn from it, carry it home in recipes scribbled on napkins and friendships that outlast the trip. 
+              We strip away the friction—the logistics, the uncertainty—so all that remains is immersion. Dont visit, <b>Inhabit</b>. 
               </p>
             </div>
 
@@ -303,19 +313,20 @@ const AboutSection1 = () => {
 
               <p
                 className={`
-                  ${quicksand.className}
+                  ${cinzel.className}
                   mt-10
                   max-w-2xl
                   text-lg
                   md:text-xl
                   leading-relaxed
-                  tracking-wide
-                  font-light
+                  tracking-widest
+                  font-extralight
                   opacity-90
+                  px-10
+                  py-10
                 `}
               >
-               We don't curate experiences for those who travel merely to capture moments—we create them for those who seek to live them. We craft immersive experiences that connect you with 
-                local communities, cultures, and causes that matter.
+               We create immersive journeys for those who seek to live the moment—connecting deeply with local communities, cultures, and meaningful causes.
               </p>
 
               <Link href="/connect">
