@@ -3,10 +3,14 @@
 import { useState } from 'react';
 import { Scroll, MapPin, Star } from 'lucide-react';
 import Header from '@/components/Header';
+import { Castoro_Titling } from 'next/font/google';
 
-/// Experience categories : Nature, City, History, Pre-history, /// 
 
-/// Difficulty : Lack of food, Distance, 
+export const medievalsharp = Castoro_Titling({
+  subsets: ['latin'], 
+  weight: ['400']
+})
+
 
 export default function ExperiencesPage() {
   const [expandedQuest, setExpandedQuest] = useState<number | null>(null);
@@ -166,12 +170,16 @@ export default function ExperiencesPage() {
       <Header />
 
       {/* Hero Section */}
-      <div className="px-8 py-16 text-center border-b border-amber-900/20">
-        <div className="flex justify-center mb-4">
-          <Scroll className="w-12 h-12 text-amber-600" />
-        </div>
-        <h1 className="text-5xl font-serif mb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">
-          Quests & Expeditions
+      <div className=" py-16 text-center border-b border-amber-900/20">
+         <h1 className={`
+            text-5xl
+            mb-4
+            text-amber-400
+            tracking-widest
+            pl-[0.3em]
+            ${medievalsharp.className}
+          `}>
+          Experiences
         </h1>
         <p className="text-xl text-amber-300/80 font-serif italic">
           Unforgettable adventures await thee, brave traveler

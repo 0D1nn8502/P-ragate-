@@ -43,7 +43,7 @@ export default function Header() {
         <Link href="/" className="flex flex-col items-center cursor-pointer group z-20">
           <div className="relative transition-transform duration-300 group-hover:scale-105">
             <img
-              src="./Thangka.JPG"
+              src="./Thangka.jpeg"
               alt="gate gate"
               className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full object-cover"
             />

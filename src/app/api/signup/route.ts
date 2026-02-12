@@ -9,8 +9,8 @@ if (!process.env.RESEND_API_KEY) {
 }
 
 const baseUrl =
-  process.env.NEXT_PUBLIC_APP_URL ??
-  "http://localhost:3000"; 
+  process.env.NEXT_DEV_URL ??
+  "https://www.paragate.in"; 
 
 
 const resend = new Resend(process.env.RESEND_API_KEY); 
