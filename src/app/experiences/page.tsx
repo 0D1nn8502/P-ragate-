@@ -6,7 +6,7 @@ import Header from '@/components/Header';
 import { Castoro_Titling } from 'next/font/google';
 
 
-export const medievalsharp = Castoro_Titling({
+const medievalsharp = Castoro_Titling({
   subsets: ['latin'], 
   weight: ['400']
 })
