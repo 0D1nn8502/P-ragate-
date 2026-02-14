@@ -1,13 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
-
 
 export const metadata: Metadata = {
   title: "Paragate landing page",
-  description: "Made with love and mindfulness", 
+  description: "Made with love and mindfulness",
 };
 
-
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 export default function RootLayout({
   children,
@@ -16,9 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body> 
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -113,13 +113,13 @@ export default function Header() {
             >
               About
             </Link>
-            <Link 
+            {/* <Link 
               href="/locations" 
               className={`text-white text-2xl tracking-wider ${firaMono.className} hover:text-gray-300 transition-colors`}
               onClick={closeMobileMenu}
             >
               Locations
-            </Link>
+            </Link> */}
             <Link 
               href="/experiences" 
               className={`text-white text-2xl tracking-wider ${firaMono.className} hover:text-gray-300 transition-colors`}

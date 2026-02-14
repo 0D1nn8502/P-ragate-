@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Scroll, MapPin, Star } from 'lucide-react';
+import { MapPin, Star } from 'lucide-react';
 import Header from '@/components/Header';
 import { Castoro_Titling } from 'next/font/google';
 
@@ -19,149 +19,19 @@ export default function ExperiencesPage() {
     {
       id: 1,
       title: '',
-      location: 'Dubai, UAE',
-      category: 'adventure',
-      type: 'group',
+      location: 'Simikot, Nepal',
+      category: 'hiking',
+      type: 'group/individual',
       images: [
-        'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1546412414-e1885259563a?w=800&h=600&fit=crop'
+        '/paragate_exp/view2.jpeg',
+        '/paragate_exp/house_outer.jpg',
+        '/paragate_exp/view.jpeg'
       ],
       rating: 4.9,
       reviews: 234,
-      description: 'Seek ye the towering sands of the Eastern deserts, where merchants trade in spices and silks. A journey through markets ancient and towers that pierce the very heavens.',
+      description: 'A remote stay with Mr. Padmajin. Close to kailash and nestled amidst breathtaking mountains.',
       difficulty: 'Moderate',
       duration: '3-5 days'
-    },
-    {
-      id: 2,
-      title: 'The Sacred Temple Pilgrimage',
-      location: 'Kyoto, Japan',
-      category: 'culture',
-      type: 'private',
-      images: [
-        'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&h=600&fit=crop'
-      ],
-      rating: 5.0,
-      reviews: 156,
-      description: 'Embark upon a spiritual sojourn through temples of old, where cherry blossoms fall like snow and zen gardens whisper secrets of tranquility.',
-      difficulty: 'Easy',
-      duration: '4-6 days'
-    },
-    {
-      id: 3,
-      title: 'The Frozen Southern Expedition',
-      location: 'Patagonia, Argentina',
-      category: 'nature',
-      type: 'group',
-      images: [
-        'https://images.unsplash.com/photo-1504870712357-65ea720d6078?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1531065208531-4036c0dba3ca?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1483821838526-8d9756a6e1ed?w=800&h=600&fit=crop'
-      ],
-      rating: 4.8,
-      reviews: 189,
-      description: 'Brave adventurers sought for treacherous paths through glacial valleys and mountain peaks where condors soar. Only the hardy shall prevail.',
-      difficulty: 'Challenging',
-      duration: '7-10 days'
-    },
-    {
-      id: 4,
-      title: 'Journey to the Red City',
-      location: 'Marrakech, Morocco',
-      category: 'food',
-      type: 'family',
-      images: [
-        'https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=800&h=600&fit=crop'
-      ],
-      rating: 4.7,
-      reviews: 203,
-      description: 'Navigate the labyrinthine souks where snake charmers perform ancient arts. Discover riads hidden behind ancient walls and taste exotic delicacies.',
-      difficulty: 'Easy',
-      duration: '3-4 days'
-    },
-    {
-      id: 5,
-      title: 'Mystical Bali Ritual',
-      location: 'Bali, Indonesia',
-      category: 'wellness',
-      type: 'private',
-      images: [
-        'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&h=600&fit=crop'
-      ],
-      rating: 5.0,
-      reviews: 278,
-      description: 'Partake in ancient ceremonies of healing and restoration, where the spirits of nature guide thee to inner peace and enlightenment.',
-      difficulty: 'Easy',
-      duration: '3 days'
-    },
-    {
-      id: 6,
-      title: 'The Fire Mountain Ascent',
-      location: 'Big Island, Hawaii',
-      category: 'adventure',
-      type: 'private',
-      images: [
-        'https://images.unsplash.com/photo-1682687220866-c856f566f1bd?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop'
-      ],
-      rating: 4.95,
-      reviews: 423,
-      description: 'Witness the earth\'s fury as molten rock meets the sea. A perilous journey for those who dare to face nature\'s most primal force.',
-      difficulty: 'Challenging',
-      duration: '2 days'
-    },
-    {
-      id: 7,
-      title: 'Vintage Wine Pilgrimage',
-      location: 'Tuscany, Italy',
-      category: 'food',
-      type: 'family',
-      images: [
-        'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1474431383397-891f922b2b09?w=800&h=600&fit=crop'
-      ],
-      rating: 4.85,
-      reviews: 167,
-      description: 'Journey through rolling hills and ancient vineyards, where the nectar of the gods flows freely and feasts await the weary traveler.',
-      difficulty: 'Easy',
-      duration: '5 days'
-    },
-    {
-      id: 8,
-      title: 'Aurora Borealis Expedition',
-      location: 'Tromsø, Norway',
-      category: 'nature',
-      type: 'group',
-      images: [
-        'https://images.unsplash.com/photo-1483347756197-71ef80e95f73?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1579033461380-adb47c3eb938?w=800&h=600&fit=crop'
-      ],
-      rating: 4.7,
-      reviews: 201,
-      description: 'Venture into the frozen north to witness the celestial dance of lights. A spectacle reserved for the most patient of seekers.',
-      difficulty: 'Moderate',
-      duration: '7 days'
-    },
-    {
-      id: 9,
-      title: 'Lost Temple Discovery',
-      location: 'Angkor Wat, Cambodia',
-      category: 'culture',
-      type: 'group',
-      images: [
-        'https://images.unsplash.com/photo-1563865436874-9aef32095fad?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1528127269322-539801943592?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1604486196725-80f85c7a4c6e?w=800&h=600&fit=crop'
-      ],
-      rating: 4.9,
-      reviews: 345,
-      description: 'Uncover the mysteries of forgotten kingdoms hidden within jungle vines. Ancient wisdom awaits those brave enough to seek it.',
-      difficulty: 'Moderate',
-      duration: '6 days'
     }
   ];
 
@@ -170,18 +40,18 @@ export default function ExperiencesPage() {
       <Header />
 
       {/* Hero Section */}
-      <div className=" py-16 text-center border-b border-amber-900/20">
-         <h1 className={`
-            text-5xl
-            mb-4
-            text-amber-400
-            tracking-widest
-            pl-[0.3em]
-            ${medievalsharp.className}
-          `}>
+      <div className="py-8 sm:py-12 lg:py-16 text-center border-b border-amber-900/20 px-4">
+        <h1 className={`
+          text-3xl sm:text-4xl lg:text-5xl
+          mb-3 sm:mb-4
+          text-amber-400
+          tracking-wide sm:tracking-widest
+          pl-[0.2em] sm:pl-[0.3em]
+          ${medievalsharp.className}
+        `}>
           Experiences
         </h1>
-        <p className="text-xl text-amber-300/80 font-serif italic">
+        <p className="text-base sm:text-lg lg:text-xl text-amber-300/80 font-serif italic max-w-2xl mx-auto">
           Unforgettable adventures await thee, brave traveler
         </p>
       </div>
@@ -190,7 +60,6 @@ export default function ExperiencesPage() {
       <div className="px-8 py-12">
         <div className="mb-8 flex items-center gap-3">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-900/50 to-transparent"></div>
-          <span className="text-amber-500 font-serif text-lg">Available Quests: {experiences.length}</span>
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-900/50 to-transparent"></div>
         </div>
 
@@ -330,7 +199,7 @@ export default function ExperiencesPage() {
                       <span className="text-amber-600 text-sm">({quest.reviews} seekers)</span>
                     </div>
                     <button className="px-4 py-2 bg-gradient-to-r from-amber-800 to-amber-950 hover:from-amber-700 hover:to-amber-900 border border-amber-700/50 rounded text-sm font-serif transition-all duration-300 hover:shadow-lg hover:shadow-amber-900/50">
-                      Accept Quest
+                      View
                     </button>
                   </div>
                 </div>
