@@ -40,7 +40,7 @@ export default function Header() {
     <header className="w-full px-4 py-3 backdrop-blur-sm bg-white/0">
       <div className="flex items-center justify-between">
         {/* Logo and Name */}
-        <Link href="/" className="flex flex-col items-center cursor-pointer group z-20">
+        <Link href="/" className="flex flex-col items-center cursor-pointer group z-20 ml-4 md:ml-20">
           <div className="relative transition-transform duration-300 group-hover:scale-105">
             <img
               src="./Thangka.jpeg"

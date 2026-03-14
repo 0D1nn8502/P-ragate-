@@ -4,12 +4,14 @@ import { useState } from 'react';
 import { MapPin, Star } from 'lucide-react';
 import Header from '@/components/Header';
 import { Castoro_Titling } from 'next/font/google';
-
+import { useRouter } from 'next/navigation';
 
 const medievalsharp = Castoro_Titling({
   subsets: ['latin'], 
   weight: ['400']
 })
+
+const router = useRouter(); 
 
 
 export default function ExperiencesPage() {
@@ -198,7 +200,10 @@ export default function ExperiencesPage() {
                       <span className="text-amber-300 font-serif">{quest.rating}</span>
                       <span className="text-amber-600 text-sm">({quest.reviews} seekers)</span>
                     </div>
-                    <button className="px-4 py-2 bg-gradient-to-r from-amber-800 to-amber-950 hover:from-amber-700 hover:to-amber-900 border border-amber-700/50 rounded text-sm font-serif transition-all duration-300 hover:shadow-lg hover:shadow-amber-900/50">
+                    <button 
+                    className="px-4 py-2 bg-gradient-to-r from-amber-800 to-amber-950 hover:from-amber-700 hover:to-amber-900 border border-amber-700/50 rounded text-sm font-serif transition-all duration-300 hover:shadow-lg hover:shadow-amber-900/50"
+                    onClick={() => router.push('/book-experience')}
+                    >
                       View
                     </button>
                   </div>
@@ -220,3 +225,8 @@ export default function ExperiencesPage() {
     </div>
   );
 }
+
+
+
+
+ 
