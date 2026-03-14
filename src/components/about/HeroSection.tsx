@@ -29,8 +29,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function HeroSectionAbout() {
 
-  const container = useRef <HTMLInputElement | null> (null);
-  window.addEventListener('load', () => ScrollTrigger.refresh())
+  const container = useRef <HTMLDivElement | null> (null);
+
+  useEffect(() => {
+
+    const handleLoad = () => ScrollTrigger.refresh(); 
+
+    window.addEventListener('load', handleLoad);
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+    
+  }, []);
 
   return (
     
@@ -39,7 +50,6 @@ export function HeroSectionAbout() {
       <AboutSection/>
 
     </main>
-
     
   );
 }
