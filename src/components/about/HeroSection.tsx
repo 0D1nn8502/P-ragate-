@@ -1,22 +1,10 @@
 'use client';
 import {useRef, useEffect} from 'react';
-import { Quicksand, Playfair_Display, Cinzel } from 'next/font/google';
+import { Cinzel } from 'next/font/google';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Image from 'next/image';
 import Link from 'next/link';
-
-
-export const quicksand = Quicksand({
-  subsets: ['latin'], 
-  weight: ['500']
-})
-
-
-export const playfair = Playfair_Display({
-  subsets: ['latin'], 
-  weight: ['500']
-})
+import { ScrollSparrow } from './ScrollSparrow';
 
 
 export const cinzel = Cinzel({
@@ -40,17 +28,18 @@ export function HeroSectionAbout() {
     return () => {
       window.removeEventListener('load', handleLoad);
     };
-    
+
   }, []);
 
   return (
     
     <main ref={container} className='h-200vh'>
 
+      <ScrollSparrow />
       <AboutSection/>
 
     </main>
-    
+
   );
 }
 
@@ -219,7 +208,6 @@ const AboutSection = () => {
                 flex-col
                 items-center
                 text-center
-                bg-[#deded5]
               "
             >
 
@@ -232,6 +220,7 @@ const AboutSection = () => {
                   leading-relaxed
                   tracking-widest
                   font-extralight
+                  text-white
                   opacity-90
                   px-10
                   py-10
@@ -259,7 +248,6 @@ const AboutSection = () => {
                 flex flex-col
                 items-center
                 text-center
-                bg-[#deded5]
               "
             >
 
@@ -270,6 +258,7 @@ const AboutSection = () => {
                   max-w-2xl
                   text-lg
                   md:text-xl
+                  text-white
                   leading-relaxed
                   tracking-widest
                   font-extralight
@@ -316,7 +305,6 @@ const AboutSection = () => {
                 flex flex-col
                 items-center
                 text-center
-                bg-[#deded5]
               "
             >
 
@@ -327,6 +315,7 @@ const AboutSection = () => {
                   max-w-2xl
                   text-lg
                   md:text-xl
+                  text-white
                   leading-relaxed
                   tracking-widest
                   font-extralight

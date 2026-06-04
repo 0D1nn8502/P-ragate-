@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:seed:experiences": "psql \"$DATABASE_URL\" -f seeds/experiences.sql",
+    "db:refresh:experiences": "psql \"$DATABASE_URL\" -f seeds/refresh_experiences.sql"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2",

@@ -43,15 +43,11 @@ export default function Header() {
         <Link href="/" className="flex flex-col items-center cursor-pointer group z-20 ml-4 md:ml-20">
           <div className="relative transition-transform duration-300 group-hover:scale-105">
             <img
-              src="./Thangka.jpeg"
+              src="./frang.JPG"
               alt="gate gate"
               className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60 rounded-full" />
           </div>
-          <p className={`text-white text-xs sm:text-sm md:text-base lg:text-lg tracking-wider ${firaMono.className} -mt-2 sm:-mt-3 md:-mt-4 lg:-mt-5 z-10 transition-opacity duration-300 group-hover:opacity-80`}>
-            Pāragate
-          </p>
         </Link> 
 
         {/* Desktop Navigation - Hidden on mobile */}
