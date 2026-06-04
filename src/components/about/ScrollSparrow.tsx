@@ -28,16 +28,22 @@ export function ScrollSparrow() {
   useEffect(() => {
     /* ── Grab elements ── */
     const birdRoot = birdRootRef.current;
-    const lw       = lwRef.current;
-    const lw2      = lw2Ref.current;
-    const rw       = rwRef.current;
-    const rw2      = rw2Ref.current;
-    const lwbar    = lwbarRef.current;
-    const rwbar    = rwbarRef.current;
-    const lwtips   = lwtipsRef.current;
-    const rwtips   = rwtipsRef.current;
-    const legs     = legsRef.current;
+    const lw = lwRef.current;
+    const lw2 = lw2Ref.current;
+    const rw = rwRef.current;
+    const rw2 = rw2Ref.current;
+    const lwbar = lwbarRef.current;
+    const rwbar = rwbarRef.current;
+    const lwtips = lwtipsRef.current;
+    const rwtips = rwtipsRef.current;
+    const legs = legsRef.current;
     if (!birdRoot || !lw || !lw2 || !rw || !rw2) return;
+
+    const bird = birdRoot;
+    const leftWing = lw;
+    const leftWing2 = lw2;
+    const rightWing = rw;
+    const rightWing2 = rw2;
 
     /* ── Helpers ── */
     const lerp  = (a: number, b: number, t: number) => a + (b - a) * t;
@@ -64,7 +70,7 @@ export function ScrollSparrow() {
       const rootBot = 59 + chord * 0.8;
       const tipChord = Math.max(minChord, chord * 0.55 + droop * 0.4);
 
-      lw.setAttribute('d',
+      leftWing.setAttribute('d',
         `M56 ${rootTop}
          C ${lmid}     ${leadY - 1},
            ${ltip + 9} ${leadY - 2},
@@ -77,9 +83,9 @@ export function ScrollSparrow() {
            56           ${rootBot}
          Z`
       );
-      lw2.setAttribute('d', 'M0 0 Z');
+      leftWing2.setAttribute('d', 'M0 0 Z');
 
-      rw.setAttribute('d',
+      rightWing.setAttribute('d',
         `M64 ${rootTop}
          C ${rmid}     ${leadY - 1},
            ${rtip - 9} ${leadY - 2},
@@ -92,7 +98,7 @@ export function ScrollSparrow() {
            64           ${rootBot}
          Z`
       );
-      rw2.setAttribute('d', 'M0 0 Z');
+      rightWing2.setAttribute('d', 'M0 0 Z');
 
       lwbar?.setAttribute('d',   'M0 0 Z');
       rwbar?.setAttribute('d',   'M0 0 Z');
@@ -239,8 +245,8 @@ export function ScrollSparrow() {
       setWings(flapT, spread);
 
       if (legs) legs.style.opacity = String(clamp(legOp, 0, 1));
-      birdRoot.style.opacity   = p < 0.025 ? String(p / 0.025) : '1';
-      birdRoot.style.transform = `translate(${bx}px, ${by}px) rotate(${rot}deg) scale(${scale})`;
+      bird.style.opacity   = p < 0.025 ? String(p / 0.025) : '1';
+      bird.style.transform = `translate(${bx}px, ${by}px) rotate(${rot}deg) scale(${scale})`;
 
       rafId = requestAnimationFrame(frame);
     }
