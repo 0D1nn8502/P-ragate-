@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Header from "@/components/Header";
 import { signupWithEmail } from "@/lib/api/auth";
+import { MessageCircle, Phone } from "lucide-react";
 
 export default function EmailSignup() {
   const [email, setEmail] = useState("");
@@ -129,6 +130,31 @@ export default function EmailSignup() {
           <p className="text-sm text-gray-300 mb-6 stagger">
             Enter your email and we'll send you a verification link to join.
           </p>
+
+          <div className="mb-6 flex items-center gap-4 stagger">
+            <a
+              href="https://wa.me/254141689327"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Contact on WhatsApp"
+              className="inline-flex flex-col items-center gap-2 text-xs text-emerald-100/90"
+            >
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-emerald-300/20 bg-emerald-200/10 text-emerald-100 hover:bg-emerald-100 hover:text-zinc-900 transition-colors">
+                <MessageCircle className="h-5 w-5" />
+              </span>
+              <span className="tracking-wide">WhatsApp</span>
+            </a>
+            <a
+              href="tel:+254141689327"
+              aria-label="Call contact number"
+              className="inline-flex flex-col items-center gap-2 text-xs text-stone-200/90"
+            >
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-stone-200/15 bg-white/5 text-stone-100 hover:bg-stone-100 hover:text-zinc-900 transition-colors">
+                <Phone className="h-5 w-5" />
+              </span>
+              <span className="tracking-wide">Call</span>
+            </a>
+          </div>
 
           <div className="relative mb-4 stagger">
             <label htmlFor="email" className="sr-only">

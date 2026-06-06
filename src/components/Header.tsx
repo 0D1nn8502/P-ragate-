@@ -45,7 +45,7 @@ export default function Header() {
             <img
               src="./frang.JPG"
               alt="gate gate"
-              className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full object-cover"
+              className="w-14 sm:w-[3.9rem] md:w-[4.8rem] lg:w-[5.4rem] h-auto object-contain"
             />
           </div>
         </Link> 

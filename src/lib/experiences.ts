@@ -10,6 +10,15 @@ export type Experience = {
   homepageShelves: string[];
 };
 
+export type ExperienceUpdateInput = {
+  id: string;
+  title: string;
+  location: string;
+  description: string;
+  images: string[];
+  homepageShelves: string[];
+};
+
 type ExperienceRow = {
   id: string;
   title: string;
@@ -68,4 +77,27 @@ export async function getRecentExperiences(limit = 3): Promise<Experience[]> {
   `) as ExperienceRow[];
 
   return rows.map(mapExperience);
+}
+
+export async function updateExperience(input: ExperienceUpdateInput) {
+  const rows = (await sql`
+    UPDATE experiences
+    SET
+      title = ${input.title},
+      location = ${input.location},
+      description = ${input.description},
+      images = ${input.images},
+      homepage_shelves = ${input.homepageShelves}
+    WHERE id = ${input.id}
+    RETURNING
+      id,
+      title,
+      location,
+      images,
+      description,
+      homepage_shelves,
+      published_at;
+  `) as ExperienceRow[];
+
+  return rows[0] ? mapExperience(rows[0]) : null;
 }
