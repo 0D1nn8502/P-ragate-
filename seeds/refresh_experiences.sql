@@ -6,9 +6,9 @@ ADD COLUMN IF NOT EXISTS homepage_shelves TEXT[] NOT NULL DEFAULT '{}';
 UPDATE experiences
 SET
     images = ARRAY[
-        '/paragate_exp/view2.jpeg',
-        '/paragate_exp/house_outer.jpg',
-        '/paragate_exp/view.jpeg'
+        '/experiences/simikot/view2.jpeg',
+        '/experiences/simikot/house_outer.jpg',
+        '/experiences/simikot/view.jpeg'
     ],
     description = 'A remote stay with Mr. Padmajin, close to Kailash and nestled amidst breathtaking mountains.',
     homepage_shelves = ARRAY[

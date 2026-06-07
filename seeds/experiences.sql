@@ -13,9 +13,9 @@ VALUES
     'Mountain House in Simikot',
     'Simikot, Nepal',
     ARRAY[
-        '/paragate_exp/view2.jpeg',
-        '/paragate_exp/house_outer.jpg',
-        '/paragate_exp/view.jpeg'
+        '/experiences/simikot/view2.jpeg',
+        '/experiences/simikot/house_outer.jpg',
+        '/experiences/simikot/view.jpeg'
     ],
     'A remote stay with Mr. Padmajin, close to Kailash and nestled amidst breathtaking mountains.',
     ARRAY[
