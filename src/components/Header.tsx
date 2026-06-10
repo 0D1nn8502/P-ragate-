@@ -13,7 +13,7 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (navRef.current && !isMobileMenuOpen) {
+    if (navRef.current && window.innerWidth >= 768) {
       gsap.set(navRef.current.children, {
         opacity: 0,
         y: 30,
@@ -49,11 +49,13 @@ export default function Header() {
           className="flex flex-col items-center cursor-pointer group z-20 ml-2 sm:ml-4 md:ml-20"
         >
           <div className="relative transition-transform duration-300 group-hover:scale-105">
+            
             <img
-              src="/logo/Paragate.png"
+              src="/logo/Paragatewtext.svg"
               alt="Paragate logo"
-              className="w-14 sm:w-[3.9rem] md:w-[4.8rem] lg:w-[5.4rem] h-auto object-contain bg-black"
+              className="w-16 sm:w-[5rem] md:w-[6rem] lg:w-[5.4rem] h-auto object-contain"
             />
+          
           </div>
         </Link> 
 
@@ -98,46 +100,36 @@ export default function Header() {
 
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 z-40 md:hidden bg-black/70 backdrop-blur-sm"
+          className="fixed inset-0 z-40 md:hidden bg-black/70 backdrop-blur-md transition-opacity duration-300"
           onClick={closeMobileMenu}
         >
           <nav
             id="mobile-menu"
-            className="ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto border-l border-white/10 bg-stone-950/95 px-6 pb-8 pt-24 shadow-2xl"
+            className="absolute top-full right-4 mt-2 w-64 rounded-2xl border border-white/10 bg-stone-950/95 p-5 shadow-2xl backdrop-blur-md flex flex-col gap-3"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="mb-8">
-              <p className="text-xs uppercase tracking-[0.3em] text-amber-300/70">
-                Navigate
-              </p>
-            </div>
-
             <div className="flex flex-col gap-3">
               <Link
                 href="/about"
-                className={`rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-lg text-white ${firaMono.className} hover:border-amber-300/40 hover:bg-amber-100/10 transition-colors`}
+                className={`rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-md text-white ${firaMono.className} hover:border-amber-300/40 hover:bg-amber-100/10 transition-colors`}
                 onClick={closeMobileMenu}
               >
                 About
               </Link>
               <Link
                 href="/experiences"
-                className={`rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-lg text-white ${firaMono.className} hover:border-amber-300/40 hover:bg-amber-100/10 transition-colors`}
+                className={`rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-md text-white ${firaMono.className} hover:border-amber-300/40 hover:bg-amber-100/10 transition-colors`}
                 onClick={closeMobileMenu}
               >
                 Experiences
               </Link>
               <Link
                 href="/connect"
-                className={`rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-lg text-white ${firaMono.className} hover:border-amber-300/40 hover:bg-amber-100/10 transition-colors`}
+                className={`rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-md text-white ${firaMono.className} hover:border-amber-300/40 hover:bg-amber-100/10 transition-colors`}
                 onClick={closeMobileMenu}
               >
                 Connect
               </Link>
-            </div>
-
-            <div className="mt-auto pt-8 text-sm text-stone-400">
-              Curated journeys and quieter ways to travel.
             </div>
           </nav>
         </div>
