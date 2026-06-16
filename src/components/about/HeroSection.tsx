@@ -22,7 +22,6 @@ export function HeroSectionAbout() {
   useEffect(() => {
 
     const handleLoad = () => ScrollTrigger.refresh(); 
-
     window.addEventListener('load', handleLoad);
 
     return () => {
@@ -48,7 +47,7 @@ const AboutSection = () => {
   const section1Ref = useRef<HTMLDivElement>(null);
   const section2Ref = useRef<HTMLDivElement>(null);
   const section3Ref = useRef<HTMLDivElement>(null);
-  
+  const section4Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Animation for first section (image left, text right)
@@ -140,7 +139,7 @@ const AboutSection = () => {
 
       gsap.fromTo(
         image3,
-        { y: -50, opacity: 0, scale: 0.9 },
+        { y: -30, opacity: 0, scale: 0.9 },
         {
           y: 0,
           opacity: 1,
@@ -175,6 +174,63 @@ const AboutSection = () => {
       );
     }
 
+    // Animation for fourth section 
+    if (section4Ref.current) {
+      const image4 = section4Ref.current.querySelector('.image-container');
+      const text4 = section4Ref.current.querySelector('.text-container p'); 
+
+      // Image: rushes in from "distance" — scale up + blur clearing
+      gsap.fromTo(
+        image4,
+        { scale: 0.4, opacity: 0, filter: 'blur(8px)' },
+        {
+          scale: 1,
+          opacity: 1,
+          filter: 'blur(0px)',
+          duration: 1.2,
+          ease: 'expo.out',        // expo.out gives that sudden deceleration
+          scrollTrigger: {
+            trigger: section4Ref.current,
+            start: 'top 80%',
+            end: 'top 30%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+
+      // Text: word-by-word reveal
+      if (text4) {
+        const original = text4.textContent || '';
+        const words    = original.split(' ');
+
+        // Wrap each word in a span
+        text4.innerHTML = words
+          .map(w => `<span style="opacity:0;display:inline-block">${w}</span>`)
+          .join(' ');
+
+        const spans = text4.querySelectorAll('span');
+
+        gsap.fromTo(
+          spans,
+          { opacity: 0, y: 12 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: 'power2.out',
+            stagger: 0.07,         // each word follows 70ms after the last
+            delay: 0.5,            // starts after image lands
+            scrollTrigger: {
+              trigger: section4Ref.current,
+              start: 'top 80%',
+              end: 'top 30%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      } 
+    }
+
     // Cleanup
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -184,7 +240,6 @@ const AboutSection = () => {
   return (
 
       // Outer div contains a bunch of card divs // 
-      
       <div className="flex flex-col justify-center items-center pt-11 min-h-screen mt-10 gap-55">
 
           {/* First Section */}
@@ -281,6 +336,36 @@ const AboutSection = () => {
 
           </div>
 
+          {/* Fourth Section */} 
+          <div ref={section4Ref} className='flex max-w-screen gap-10'>
+              <div className='w-[320px] md:w-[320px] lg:w-[400px] mx-auto image-container'> 
+                  <img 
+                    src='/digital-infrastructure.png'
+                    alt="Why illustration" 
+                    className='w-full h-auto rounded-2xl'
+                  /> 
+              </div>
+
+              <p
+                className={`
+                  ${cinzel.className}
+                  mt-10
+                  max-w-2xl
+                  text-lg
+                  md:text-xl
+                  text-white
+                  leading-relaxed
+                  tracking-widest
+                  font-extralight
+                  opacity-90
+                  px-10
+                  py-10
+                `}
+              >
+              We build digital infrastructure for local businesses and communities to help them thrive in the new era of travel. 
+              </p>
+
+          </div>
 
 
           {/* Third Section */}
@@ -351,7 +436,7 @@ const AboutSection = () => {
                     cursor-pointer
                   "
                 >
-                  Book Now!
+                  Connect with us
                 </button>
               </Link>
 

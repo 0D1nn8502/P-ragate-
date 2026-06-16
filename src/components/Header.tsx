@@ -69,18 +69,28 @@ export default function Header() {
           >
             About
           </Link>
+
           <Link
             href="/experiences"
             className={`text-white text-sm lg:text-base tracking-wider ${firaMono.className} hover:text-gray-300 transition-colors`}
           >
             Experiences
           </Link>
+
           <Link
             href="/connect"
             className={`text-white text-sm lg:text-base tracking-wider ${firaMono.className} hover:text-gray-300 transition-colors`}
           >
             Connect
           </Link>
+
+          {/* <Link
+            href="/projects"
+            className={`text-white text-sm lg:text-base tracking-wider ${firaMono.className} hover:text-gray-300 transition-colors`}
+          >
+            Projects
+          </Link> */}
+
         </nav>
 
         <button

@@ -1,17 +1,7 @@
 'use client';
 import { useRef, useEffect } from 'react';
 
-/**
- * ScrollSparrow
- * Drop into your layout or page — sits fixed over the page and animates
- * as the user scrolls. No dependencies beyond React.
- *
- * Usage (e.g. in app/about/page.tsx or layout.tsx):
- *   import { ScrollSparrow } from '@/components/ScrollSparrow';
- *   ...
- *   <ScrollSparrow />
- *   <HeroSectionAbout />
- */
+
 export function ScrollSparrow() {
   /* ── Refs for every animated SVG element ── */
   const birdRootRef = useRef<SVGSVGElement>(null);
@@ -57,7 +47,7 @@ export function ScrollSparrow() {
       const droop = lerp(14, 0,  flapT) * spread;
       const chord = 18;
       const minChord = 10;
-      const minReach = 14;
+      const minReach = 10;
 
       const ltip = Math.min(56 - minReach, lerp(52, 12, spread));
       const rtip = Math.max(64 + minReach, lerp(68, 108, spread));
@@ -276,8 +266,8 @@ export function ScrollSparrow() {
           position:        'absolute',
           top:             0,
           left:            0,
-          width:           '120px',
-          height:          '120px',
+          width:           '80px',
+          height:          '80px',
           willChange:      'transform, opacity',
           transformOrigin: '60px 60px',
           filter:          'drop-shadow(0 0 14px rgba(255,255,255,0.2))',
