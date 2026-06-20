@@ -13,6 +13,7 @@ export const cinzel = Cinzel({
 })
 
 
+
 gsap.registerPlugin(ScrollTrigger); 
 
 export function HeroSectionAbout() {
@@ -238,9 +239,7 @@ const AboutSection = () => {
   }, []);
 
   return (
-
-      // Outer div contains a bunch of card divs // 
-      <div className="flex flex-col justify-center items-center pt-11 min-h-screen mt-10 gap-55">
+      <div className="flex flex-col justify-center items-center pt-11 min-h-screen mt-10 gap-55 sm:gap-45">
 
           {/* First Section */}
           <div ref={section1Ref} className='flex flex-col max-w-4xl gap-2 max-h-xl'>
@@ -270,7 +269,7 @@ const AboutSection = () => {
                 className={`
                   ${cinzel.className}
                   max-w-2xl
-                  text-lg
+                  text-sm
                   md:text-xl
                   leading-relaxed
                   tracking-widest
@@ -283,26 +282,18 @@ const AboutSection = () => {
               >
                 Travel is not an escape—it’s a <b> return </b> to curiosity, presence, and transformation
               </p>
-            </div>
 
+            </div>
 
           </div>
 
 
           {/* Second Section */}
-          <div ref={section2Ref} className='flex max-w-screen gap-10'>
+          <div ref={section2Ref} className='flex max-w-screen gap-6 md:gap-10'>
 
             <div
               className="
-                text-container
-                max-w-xl
-                w-full
-                rounded-2xl
-                max-h-xl
-                h-full
-                flex flex-col
-                items-center
-                text-center
+                flex text-container items-center
               "
             >
 
@@ -310,8 +301,8 @@ const AboutSection = () => {
                 className={`
                   ${cinzel.className}
                   mt-10
-                  max-w-2xl
-                  text-lg
+                  w-full md:w-1/2 
+                  text-sm
                   md:text-xl
                   text-white
                   leading-relaxed
@@ -324,34 +315,36 @@ const AboutSection = () => {
               >
               We strip away the friction—the logistics, the uncertainty—so all that remains is immersion. Dont visit, <b>Inhabit</b>. 
               </p>
-            </div>
 
-            <div className='w-[520px] md:w-[520px] lg:w-[400px] image-container'> 
+            <div className='w-full md:w-1/2 image-container'> 
               <img
                 src="/logistics.png"
-                alt="Why illustration" 
-                className='w-full h-auto rounded-2xl px-2'
+                alt="Logistics" 
+                className='w-full h-auto rounded-2xl'
               /> 
+            </div>
             </div>
 
           </div>
 
-          {/* Fourth Section */} 
-          <div ref={section4Ref} className='flex max-w-screen gap-10'>
-              <div className='w-[320px] md:w-[320px] lg:w-[400px] mx-auto image-container'> 
+          {/* Third Section */} 
+          <div ref={section4Ref} className='flex max-w-screen gap-6 md:gap-10'>
+            <div className="flex text-container items-center"> 
+              <div className='w-full md:w-1/2 image-container'> 
                   <img 
                     src='/digital-infrastructure.png'
-                    alt="Why illustration" 
+                    alt="Digital Infrastructure" 
                     className='w-full h-auto rounded-2xl'
                   /> 
               </div>
+              
 
               <p
                 className={`
                   ${cinzel.className}
                   mt-10
-                  max-w-2xl
-                  text-lg
+                  w-full md:w-1/2 
+                  text-sm
                   md:text-xl
                   text-white
                   leading-relaxed
@@ -365,11 +358,13 @@ const AboutSection = () => {
               We build digital infrastructure for local businesses and communities to help them thrive in the new era of travel. 
               </p>
 
+            </div>
+
           </div>
 
 
-          {/* Third Section */}
-          <div ref={section3Ref} className='flex flex-col max-w-4xl gap-10'>
+          {/* Fourth Section */}
+          <div ref={section3Ref} className='flex flex-col max-w-4xl gap-6 md:gap-10'>
 
             <div className='w-[320px] md:w-[320px] lg:w-[400px] mx-auto image-container'> 
               <img
@@ -398,7 +393,7 @@ const AboutSection = () => {
                   ${cinzel.className}
                   mt-10
                   max-w-2xl
-                  text-lg
+                  text-sm
                   md:text-xl
                   text-white
                   leading-relaxed
